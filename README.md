@@ -6,6 +6,14 @@ This Python script is designed to handle External Cloud outages by implementing 
 It checks the availability of the External Cloud by making requests to a specified cloudlookup endpoint. 
 If an outage is detected, the script performs a failover to a backup External Cloud region.
 
+## Features
+
+- Switch between different Ext Cloud Regions: North America (NAM), Europe (EU), and Asia-Pacific (APAC).
+- Perform health checks on the Ext Cloud to ensure Availability.
+- Monitor network latency using Speedtest.
+- Automatically restart the APP applications when switching regions.
+- Failover mechanism in case of Ext Cloud unavailability.
+
 ## Prerequisites
 
 - Python 3.9 or later
@@ -26,15 +34,19 @@ Example:
 ```
 
 # Environment Variables
-`EXT_CLOUD_FAILOVER_LIST`: Set this environment variable with a comma-separated list of Ext Cloud regions for failover.
+`EXT_CLOUD_FAILOVER_LIST`: Comma-separated list of Ext Clouds for failover.
+`CONNECTION_KEEPALIVE_ORG_ID`: Organization ID for Ext Cloud connection keep-alive.
+`CONNECTION_KEEPALIVE_TXN_ID`: Transaction ID for Ext Cloud connection keep-alive.
 
 # Configuration
 The failover behavior is defined in the ext_clouds_failover_list function. 
 It returns a list of Ext Cloud regions in the preferred failover order based on the provided region argument.
+The script uses an environment file, ext_cloud.env, located at /opt/application/tmp/, to store the current primary Ext Cloud information.
 
 # Logging
 The script uses the logging module to provide detailed logs in JSON format. 
 Log messages include a timestamp, log level, service name, and the log message itself.
+The script logs events using the logging module, providing information about Ext Cloud switching, network latency, and availability checks.
 
 # Failover Logic
 The failover logic is implemented in the check_ext_cloud_availability function. 
@@ -49,4 +61,6 @@ The `restart_application` function stops and then restarts the App application c
 # Notes
 The script is configured to run indefinitely, checking Ext Cloud availability every 10 seconds.
 The failover threshold is set to 4 minutes. If the script detects a continuous outage for 4 minutes, it triggers a restart of the application.
+The script uses the speedtest library to measure network latency. Ensure it is installed (pip install speedtest-cli).
+For security reasons, the script disables SSL verification for the localhost connection to the Ext Cloud. 
 Make sure to review and adjust the script according to your specific environment and requirements.
