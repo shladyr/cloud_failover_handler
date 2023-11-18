@@ -1,0 +1,33 @@
+{
+	"id": 135048211,
+	"name": "Ext Cloud Switching event",
+	"type": "log alert",
+	"query": "logs(\"service:application.production Waited for 4 min. Application restarting due to failure with Ext Cloud\").index(\"main\").rollup(\"count\").by(\"@datacenter\").last(\"10m\") >= 2",
+	"message": "{{#is_alert}} Please check the following for DC {{Datacenter}}:\n1. Is there an Ext Cloud Outage ?\n2. Are there network issues in the DC or behind ISP ?\n3. Have all containers failed over or just one ?\n4. Is the DC experiencing issues ? \n5. If just one container and no Ext Cloud Outage, can you scale up and down the Pod to fix ?\n{{/is_alert}} \n\n{{#is_recovery}}Back to normal, Phew! {{/is_recovery}} @pagerduty-DevOps_Team",
+	"tags": [
+		"dc",
+		"service",
+		"slug"
+	],
+	"options": {
+		"thresholds": {
+			"critical": 2,
+			"warning": 1,
+			"critical_recovery": 1
+		},
+		"enable_logs_sample": true,
+		"notify_audit": true,
+		"on_missing_data": "default",
+		"include_tags": true,
+		"require_full_window": true,
+		"new_group_delay": 60,
+		"renotify_interval": 0,
+		"escalation_message": "",
+		"groupby_simple_monitor": false,
+		"silenced": {
+			"*": null
+		}
+	},
+	"priority": 2,
+	"restricted_roles": null
+}
