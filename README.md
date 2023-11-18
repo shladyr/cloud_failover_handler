@@ -6,6 +6,15 @@
 - It checks the availability of the External Cloud by making requests to a specified cloudlookup endpoint. 
 - If an outage is detected, the script performs a failover to a backup External Cloud region.
 
+# Architecture Diagram
+![_1_Architecture_Diagram.png](Doc%2F_1_Architecture_Diagram.png)
+
+# Component Diagram
+![_2_Component_Diagram.png](Doc%2F_2_Component_Diagram.png)
+
+# Flowchart Diagram
+TBD
+
 ## Features
 
 - Switch between different Ext Cloud Regions: North America (NAM), Europe (EU), and Asia-Pacific (APAC).
