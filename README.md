@@ -18,7 +18,7 @@
 ## Features
 
 - Switch between different Ext Cloud Regions: North America (NAM), Europe (EU), and Asia-Pacific (APAC).
-- Send log event to https://github.com/DataDog
+- Send log event to [@DataDogCloud](https://github.com/DataDog) 
 - Perform health checks on the Ext Cloud to ensure Availability.
 - Monitor network latency using Speedtest.
 - Automatically restart the APP applications when switching regions.
