@@ -6,6 +6,15 @@
 - It checks the availability of the External Cloud by making requests to a specified cloudlookup endpoint. 
 - If an outage is detected, the script performs a failover to a backup External Cloud region.
 
+## Features
+
+- Switch between different Ext Cloud Regions: North America (NAM), Europe (EU), and Asia-Pacific (APAC).
+- Send log event to [@DataDogCloud](https://github.com/DataDog) , [Doc](https://docs.datadoghq.com/logs/)
+- Perform health checks on the Ext Cloud to ensure Availability.
+- Monitor network latency using [speedtest-cli](https://github.com/sivel/speedtest-cli/wiki).
+- Automatically restart the APP applications when switching regions (via [Supervisord](https://github.com/Supervisor/supervisor)).
+- Failover mechanism in case of Ext Cloud unavailability.
+
 # Architecture Diagram
 ![_1_Architecture_Diagram.png](Doc%2F_1_Architecture_Diagram.png)
 
@@ -14,15 +23,6 @@
 
 # Flowchart Diagram
 ![_3_Flowchart_Diagram.png](Doc%2F_3_Flowchart_Diagram.png)TBD
-
-## Features
-
-- Switch between different Ext Cloud Regions: North America (NAM), Europe (EU), and Asia-Pacific (APAC).
-- Send log event to [@DataDogCloud](https://github.com/DataDog) 
-- Perform health checks on the Ext Cloud to ensure Availability.
-- Monitor network latency using Speedtest.
-- Automatically restart the APP applications when switching regions.
-- Failover mechanism in case of Ext Cloud unavailability.
 
 ## Prerequisites
 
