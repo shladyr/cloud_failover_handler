@@ -2,7 +2,7 @@
 
 ## Overview
 
-- This Python script is designed to handle External Cloud outages by implementing a failover mechanism. 
+- This Python script is designed to handle External Cloud outages by implementing a [failover](https://en.wikipedia.org/wiki/Failover) mechanism. 
 - It checks the availability of the External Cloud by making requests to a specified cloudlookup endpoint. 
 - If an outage is detected, the script performs a failover to a backup External Cloud region.
 
