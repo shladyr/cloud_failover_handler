@@ -10,7 +10,7 @@
 
 - Switch between different Ext Cloud Regions: North America (NAM), Europe (EU), and Asia-Pacific (APAC).
 - Send log event to [@DataDogCloud](https://github.com/DataDog) , [Doc](https://docs.datadoghq.com/logs/)
-- Perform health checks on the Ext Cloud to ensure Availability.
+- Perform health checks on the Ext Cloud to ensure [Availability](https://en.wikipedia.org/wiki/Availability).
 - Monitor network latency using [speedtest-cli](https://github.com/sivel/speedtest-cli/wiki).
 - Automatically restart the APP applications when switching regions (via [Supervisord](https://github.com/Supervisor/supervisor)).
 - Failover mechanism in case of Ext Cloud unavailability.
